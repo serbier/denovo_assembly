@@ -1,0 +1,26 @@
+# Main entrypoint of the workflow.
+from datetime import datetime
+
+
+start_time = datetime.now()
+print(start_time)
+
+# resources params
+include : "rules/common.smk"
+
+
+rule all:
+	input:
+		expand([
+			"{basedir}/results/{sample}/annotation/maker/{sample}_scaffolded.all.map"],
+			 sample = ['G10474', 'VAP_005', 'VAP_009', 'VAP_011', 'INB_841'],
+			 basedir= '/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data')
+
+
+
+include : "rules/read_correction.smk"
+include : "rules/canu.smk"
+include : "rules/polishing.smk"
+include : "rules/purge_assembly.smk"
+include : "rules/annotation.smk"
+include : "rules/scaffolding.smk"

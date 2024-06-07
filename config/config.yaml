@@ -1,0 +1,47 @@
+sample_units: config/sample_units.txt
+base_wd: /home/scruz/pipelines/denovo_assembly/
+resources_config: config/resources.yaml
+
+organism:
+  genome_size: 590000000
+
+correction:
+  NECAT_path: /home/scruz/software/NECAT/Linux-amd64/bin/necat.pl  
+  min_read_l: 3000
+
+NGSEP: /home/scruz/software/NGSEPcore/NGSEPcore_4.3.2.jar
+TE_DB: /home/scruz/pipelines/denovo_assembly/resources/TE_database_Duitama/Pvulgaris_218_DBfinalTE1.fa
+
+
+NGSEP_TE2GFF_script: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/convert_NGSEP_TE_GFF.awk
+
+
+mpiexec: /home/scruz/software/openmpi-4.1.5/bin/mpiexec
+
+maker: /home/scruz/maker/maker-master/bin/maker
+opts_maker_script: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/maker_opts_converter.awk
+opts_maker_script_scaffold: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/maker_opts_converter_scaffolding.awk
+
+
+gff3_merge: /home/scruz/maker/maker-master/bin/gff3_merge
+fasta_merge: /home/scruz/maker/maker-master/bin/fasta_merge
+maker_map_ids: /home/scruz/maker/maker-master/bin/maker_map_ids
+map_gff_ids: /home/scruz/maker/maker-master/bin/map_gff_ids
+map_fasta_ids: /home/scruz/maker/maker-master/bin/map_fasta_ids
+
+protein: /home/scruz/references/annotation_evidence/Phaseolus_proteins.fa
+transcripts: /home/scruz/references/annotation_evidence/Phaseolus_transcripts.fa
+
+racon: /home/scruz/software/racon/build/bin/racon
+
+BUSCO: /home/scruz/software/busco-5.4.3/bin/busco
+busco_db : /home/scruz/references/BUSCO/fabales_odb10/
+
+read_depth_path: /home/scruz/pipelines/denovo_assembly/config/read_depths_purge.txt
+
+basedir: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data
+chromonomer: /home/scruz/chrono/chromonomer-1.14/chromonomer
+markers_scaffolding: /home/scruz/pipelines/denovo_assembly/resources/SR_F2_linkage_map/SR_F2_markers.fasta
+linkage_map: /home/scruz/pipelines/denovo_assembly/resources/SR_F2_linkage_map/SR_F2_linkage_map.tsv
+
+abyss-fatoagp: /home/scruz/software/abyss-fatoagp

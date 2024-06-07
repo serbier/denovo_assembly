@@ -1,0 +1,10 @@
+sample_name	read_file_path
+MAB_349	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/MAB_349.fastq.gz
+MAB_351	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/MAB_351.fastq.gz
+RIL_097	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/RIL_097.fastq.gz
+G21212	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/G21212.fastq.gz
+BAT_881	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/BAT_881.fastq.gz
+SEN_118	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/SEN_118.fastq.gz
+MEX_054	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/MEX_054.fastq.gz
+G10909	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/G10909.fastq.gz
+VAP_009	/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data/sequences/guppy/merged/VAP_009.fastq.gz

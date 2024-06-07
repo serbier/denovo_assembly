@@ -1,0 +1,12 @@
+###
+# Correction rules
+###
+
+NECAT:
+  threads: 70
+
+###
+# Assembly rules
+###
+CANU:
+  threads: 80
