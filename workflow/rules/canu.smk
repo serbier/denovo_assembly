@@ -17,7 +17,7 @@ rule canu_denovo_assembly:
         "results/{sample}/assembly/canu.log"
 
     conda:
-        "denovo_assembly_pipeline"
+        "../envs/canu.yaml"
     shell: 
         """
         canu -trim-assemble \
@@ -26,7 +26,7 @@ rule canu_denovo_assembly:
         genomeSize={params.genome_size}m \
         useGrid=false \
         maxThreads={threads} \
-        -corrected -nanopore {input} 1> {log}
+        -corrected -nanopore {input} 2> {log}
         """
 
 rule NGSEP_denovo_assembly:
@@ -37,9 +37,9 @@ rule NGSEP_denovo_assembly:
     log:
         'results/{sample}/assembly/NGSEP/{sample}_Assembler.log'
     threads:
-        50
+        resources['NGSEP']['threads']
     conda:
-        "denovo"
+        "../envs/NGSEP.yaml"
     shell:
         """
         java -Xmx300G -jar {config[NGSEP]} Assembler \
@@ -48,3 +48,46 @@ rule NGSEP_denovo_assembly:
             -m 3000 \
             -t {threads} 2> {log}
         """
+
+rule get_raw_reads:
+    input:
+        raw_reads = get_read_list_per_sample
+    output:
+        temp("data/{sample}/{sample}_merged_reads.fastq.gz")
+    conda:
+        'ngs'
+    shell:
+        """
+        zcat {input.raw_reads} | bgzip > {output}
+        """
+
+rule flye_denovo_assembly:
+    input:
+        raw_reads = "data/{sample}/{sample}_merged_reads.fastq.gz"
+    output:
+        temp(directory('assembly/flye/{sample}')),
+
+    log:
+        'logs/{sample}/assembly/flye.log'
+    conda:
+        "../envs/flye.yaml"
+    threads:
+        resources['flye']['threads']
+    shell:
+        """
+        flye --nano-raw {input.raw_reads} \
+        --out-dir assembly/flye/{wildcards.sample} \
+        --threads {threads} 2> {log}
+        """
+        
+#rule move_assembly:
+#    input:
+#        directory('assembly/flye/{sample}')
+#    output:
+#        directory(f'{base_dir}/assembly/flye/{{sample}}')
+#    shell:
+#        """
+#        cp -r {input} {output} && \
+#        rm -r {input}
+#        """
+    

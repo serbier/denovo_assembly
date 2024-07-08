@@ -1,3 +1,8 @@
 resources/*
 results/*
 .snakemake/
+data/*
+purge/*
+logs/*
+polishing/*
+tmp_purge_haplotigs/*

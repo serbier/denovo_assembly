@@ -10,3 +10,8 @@ NECAT:
 ###
 CANU:
   threads: 80
+
+NGSEP:
+  threads: 80
+flye:
+  threads: 80

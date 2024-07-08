@@ -8,19 +8,16 @@ print(start_time)
 # resources params
 include : "rules/common.smk"
 
-
 rule all:
 	input:
-		expand([
-			"{basedir}/results/{sample}/annotation/maker/{sample}_scaffolded.all.map"],
-			 sample = ['G10474', 'VAP_005', 'VAP_009', 'VAP_011', 'INB_841'],
-			 basedir= '/catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data')
+		assembly = expand(["purge/{sample}/{sample}_polished_histogram.png"],
+			 sample = ['G2402','AMADEUS','RAZ_044','TLP_030','DOR_476','SER_316','SIN_526','SMN_097'])
 
-
-
-include : "rules/read_correction.smk"
+#include : "rules/read_correction.smk"
 include : "rules/canu.smk"
 include : "rules/polishing.smk"
 include : "rules/purge_assembly.smk"
-include : "rules/annotation.smk"
-include : "rules/scaffolding.smk"
+#include : "rules/annotation.smk"
+#include : "rules/scaffolding.smk"
+
+

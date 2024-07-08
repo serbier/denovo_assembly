@@ -46,4 +46,47 @@ rule index_polish_genome:
 		samtools faidx {input.polish_draft}
 		"""
 
-		
+rule samtools_faidx:
+    input:
+        "data/{sample}/{sample}_merged_reads.fastq.gz",
+    output:
+        temp("data/{sample}/{sample}_merged_reads.fastq.gz.fai")
+    params:
+        extra="",
+    wrapper:
+        "v3.12.1/bio/samtools/faidx"
+
+
+rule bring_assembly:
+	input:
+		directory(f'{base_dir}/assembly/flye/{{sample}}')
+	output:
+		temp(directory('polishing/assembly_base/flye/{sample}'))
+	shell:
+		"""
+		cp -r {input} {output}
+		"""
+
+rule polish_medaka:
+	input:
+		basecalls = "data/{sample}/{sample}_merged_reads.fastq.gz",
+		draft = directory('polishing/assembly_base/flye/{sample}')
+	output:
+		temp(directory("polishing/medaka/{sample}"))
+	threads:
+		50
+	log:
+		'logs/{sample}/polishing/medaka.log'
+	conda:
+		"tf2"
+	shell:
+		"""
+		medaka_consensus \
+			-i {input.basecalls} \
+			-d polishing/assembly_base/flye/{wildcards.sample}/assembly.fasta\
+			-o {output} \
+			-t {threads} \
+			-m r1041_e82_400bps_hac_v4.3.0 2> {log}
+		"""
+
+

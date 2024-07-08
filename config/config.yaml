@@ -1,7 +1,7 @@
 sample_units: config/sample_units.txt
 base_wd: /home/scruz/pipelines/denovo_assembly/
 resources_config: config/resources.yaml
-
+base_dir: "/opt/bean_fast/ONT"
 organism:
   genome_size: 590000000
 
@@ -9,7 +9,7 @@ correction:
   NECAT_path: /home/scruz/software/NECAT/Linux-amd64/bin/necat.pl  
   min_read_l: 3000
 
-NGSEP: /home/scruz/software/NGSEPcore/NGSEPcore_4.3.2.jar
+NGSEP: /home/scruz/software/NGSEPcore/NGSEPcore_5.0.0.jar
 TE_DB: /home/scruz/pipelines/denovo_assembly/resources/TE_database_Duitama/Pvulgaris_218_DBfinalTE1.fa
 
 
