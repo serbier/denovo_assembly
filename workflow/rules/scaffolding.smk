@@ -88,3 +88,24 @@ rule get_scaffolded_assembly:
 		"""
 		ragtag_agp2fa.py {input.agp} {input.curated_draft} > {output} 2> {log}
 		"""
+
+rule ref_based_scaffolding:
+	input:
+		ref = config['scaffolding']['ref'],
+		curated_draft = f"{base_dir}/purge/purge_haplotigs/{{sample}}/{{sample}}.fasta",
+	output:
+		multiext(f"{base_dir}/scaffolding/ragtag/{{sample}}/ragtag.scaffold",".agp", ".fasta", '.stats')
+		
+	conda:
+		"../envs/ragtag.yaml"
+	log:
+		'logs/{sample}/scaffolding/ragtag_scaff.log'
+	threads:
+		30
+	shell:
+		"""
+		ragtag.py scaffold {input.ref} {input.curated_draft} -o {base_dir}/scaffolding/ragtag/{wildcards.sample} -t {threads} 2> {log}
+		"""
+
+
+

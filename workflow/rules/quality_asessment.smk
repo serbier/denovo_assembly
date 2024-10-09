@@ -1,17 +1,37 @@
-rule busco:
+rule quast:
 	input:
-		scaffolded_draft = 'results/{sample}/scaffolding/{sample}_scaffolded.fasta'
+		decontaminated_draft = f"{base_dir}/quality/decontamination/{{sample}}/{{sample}}.decontaminated.fa",
 	output:
-		directory('results/{sample}/BUSCO/')
+		directory(f"{base_dir}/quality/quast/{{sample}}")
 	threads:
-		10
+		20
 	conda:
-		"denovo"
+		"quast"
 	shell:
 		"""
-		{config[BUSCO]} -i {input.scaffolded_draft} \
-				-m geno \
-				-o {output} \
-				-c {threads} \
-				--offline
+		quast.py -o {output} \
+		-t {threads} \
+		-r {config[quast_ref]} \
+		{input.decontaminated_draft} 
 		"""
+
+rule run_busco:
+	input:
+		f"{base_dir}/quality/decontamination/{{sample}}/{{sample}}.decontaminated.fa",
+	output:
+		short_json=f"{base_dir}/quality/BUSCO/{{sample}}/short_summary.json",
+		short_txt=f"{base_dir}/quality/BUSCO/{{sample}}/short_summary.txt",
+		full_table=f"{base_dir}/quality/BUSCO/{{sample}}/full_table.tsv",
+		miss_list=f"{base_dir}/quality/BUSCO/{{sample}}/busco_missing.tsv",
+		dataset_dir=temp(directory(f"{base_dir}/quality/BUSCO/{{sample}}/busco_downloads"))
+	log:
+		'logs/{sample}/BUSCO/busco.log'
+	params:
+		mode="genome",
+		lineage="fabales_odb10",
+		# optional parameters
+		extra="",
+	threads:
+		40
+	wrapper:
+		"file:///home/scruz/software/snakemake-wrappers/bio/busco"

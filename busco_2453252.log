@@ -1,0 +1,140 @@
+2024-09-09 16:27:28 DEBUG:busco.run_BUSCO	Command line: /home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/bin/busco --cpu 40 --in /opt/bean_fast/ONT/quality/decontamination/INB_841/INB_841.decontaminated.fa --mode genome --lineage fabales_odb10 --download_path /tmp/tmph87mr63l/dataset --out_path /tmp/tmph87mr63l --out output
+2024-09-09 16:27:28 INFO:busco.run_BUSCO	***** Start a BUSCO v5.7.1 analysis, current time: 09/09/2024 16:27:28 *****
+2024-09-09 16:27:28 DEBUG:busco.ConfigManager	Getting config file
+2024-09-09 16:27:28 INFO:busco.ConfigManager	Configuring BUSCO with local environment
+2024-09-09 16:27:28 INFO:busco.BuscoConfig	Running genome mode
+2024-09-09 16:27:28 INFO:busco.BuscoDownloadManager	Downloading information on latest versions of BUSCO data...
+2024-09-09 16:29:38 INFO:busco.BuscoDownloadManager	Download connection problem. Retrying in 10 seconds
+2024-09-09 16:31:57 INFO:busco.BuscoDownloadManager	Download connection problem. Retrying in 100 seconds
+2024-09-09 16:35:46 INFO:busco.BuscoDownloadManager	Cannot reach https://busco-data.ezlab.org/v5/data/file_versions.tsv. Retrying with backup url https://busco-data2.ezlab.org/v5/data/
+2024-09-09 16:35:46 INFO:busco.BuscoDownloadManager	Downloading information on latest versions of BUSCO data...
+2024-09-09 16:40:09 INFO:busco.BuscoDownloadManager	Download connection problem. Retrying in 10 seconds
+2024-09-09 16:44:41 INFO:busco.BuscoDownloadManager	Download connection problem. Retrying in 100 seconds
+2024-09-09 16:50:44 ERROR:busco.BuscoRunner	Cannot reach https://busco-data2.ezlab.org/v5/data/file_versions.tsv
+2024-09-09 16:50:44 DEBUG:busco.BuscoRunner	Cannot reach https://busco-data2.ezlab.org/v5/data/file_versions.tsv
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1443, in connect
+    super().connect()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 77, in _obtain_versions_file
+    urllib.request.urlretrieve(remote_filepath, local_filepath)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 247, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1393, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 110] Connection timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 53, in __init__
+    self._obtain_versions_file()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoLogger.py", line 62, in wrapped_func
+    self.retval = func(*args, **kwargs)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 107, in _obtain_versions_file
+    raise BatchFatalError("Cannot reach {}".format(remote_filepath))
+busco.Exceptions.BatchFatalError: Cannot reach https://busco-data.ezlab.org/v5/data/file_versions.tsv
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 1443, in connect
+    super().connect()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 77, in _obtain_versions_file
+    urllib.request.urlretrieve(remote_filepath, local_filepath)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 247, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1393, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 101] Network is unreachable>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/run_BUSCO.py", line 68, in run
+    self.load_config()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/run_BUSCO.py", line 60, in load_config
+    self.config_manager.load_busco_config_main()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoLogger.py", line 62, in wrapped_func
+    self.retval = func(*args, **kwargs)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/ConfigManager.py", line 63, in load_busco_config_main
+    self.config_main.validate()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoConfig.py", line 640, in validate
+    self._init_downloader()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoConfig.py", line 440, in _init_downloader
+    self.downloader = BuscoDownloadManager(self)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 61, in __init__
+    self._obtain_versions_file()
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoLogger.py", line 62, in wrapped_func
+    self.retval = func(*args, **kwargs)
+  File "/home/scruz/workflows/denovo_assembly/.snakemake/conda/d822988f55c9e8f105bece16cab6eeff_/lib/python3.7/site-packages/busco/BuscoDownloadManager.py", line 107, in _obtain_versions_file
+    raise BatchFatalError("Cannot reach {}".format(remote_filepath))
+busco.Exceptions.BatchFatalError: Cannot reach https://busco-data2.ezlab.org/v5/data/file_versions.tsv
+2024-09-09 16:50:44 ERROR:busco.BuscoRunner	BUSCO analysis failed!
+2024-09-09 16:50:44 ERROR:busco.BuscoRunner	Check the logs, read the user guide (https://busco.ezlab.org/busco_userguide.html), and check the BUSCO issue board on https://gitlab.com/ezlab/busco/issues
+

@@ -9,17 +9,20 @@ correction:
   NECAT_path: /home/scruz/software/NECAT/Linux-amd64/bin/necat.pl  
   min_read_l: 3000
 
+scaffolding:
+  ref: /opt/InterspecificCommonBeanDenovoGenomeAssembly/5.Others/references/genomes/Pvulgaris/UI-111/v1.1/assembly/PvulgarisUI111_534_v1.0.fa
+
 NGSEP: /home/scruz/software/NGSEPcore/NGSEPcore_5.0.0.jar
-TE_DB: /home/scruz/pipelines/denovo_assembly/resources/TE_database_Duitama/Pvulgaris_218_DBfinalTE1.fa
+TE_DB: /home/scruz/workflows/denovo_assembly/resources/Pvulgaris_218_DBfinalTE1.fa
 
 
-NGSEP_TE2GFF_script: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/convert_NGSEP_TE_GFF.awk
+NGSEP_TE2GFF_script: /opt/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/convert_NGSEP_TE_GFF.awk
 
 
-mpiexec: /home/scruz/software/openmpi-4.1.5/bin/mpiexec
+mpiexec: /home/scruz/software/openmpi/bin/mpiexec
 
 maker: /home/scruz/maker/maker-master/bin/maker
-opts_maker_script: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/maker_opts_converter.awk
+opts_maker_script: /opt/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/maker_opts_converter.awk
 opts_maker_script_scaffold: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/4.Scripts/utils/AWK_scripts/maker_opts_converter_scaffolding.awk
 
 
@@ -29,17 +32,24 @@ maker_map_ids: /home/scruz/maker/maker-master/bin/maker_map_ids
 map_gff_ids: /home/scruz/maker/maker-master/bin/map_gff_ids
 map_fasta_ids: /home/scruz/maker/maker-master/bin/map_fasta_ids
 
-protein: /home/scruz/references/annotation_evidence/Phaseolus_proteins.fa
-transcripts: /home/scruz/references/annotation_evidence/Phaseolus_transcripts.fa
+protein: /home/scruz/workflows/denovo_assembly/resources/Phaseolus_proteins/Phaseolus_protein.fa
+transcripts: /home/scruz/workflows/denovo_assembly/resources/Phaseolus_TSA/GAMK01.1.fsa_nt
 
+uniprot_db: /opt/InterspecificCommonBeanDenovoGenomeAssembly/5.Others/references/Swiss-Prot/uniprot_sprot.fasta
+nt_db: /opt/InterspecificCommonBeanDenovoGenomeAssembly/5.Others/references/BLAST/nt/nt
 racon: /home/scruz/software/racon/build/bin/racon
 
+taxdump_db: /opt/InterspecificCommonBeanDenovoGenomeAssembly/5.Others/references/taxdump
+
+quast_ref: /opt/InterspecificCommonBeanDenovoGenomeAssembly/5.Others/references/genomes/Pvulgaris/UI-111/v1.1/assembly/PvulgarisUI111_534_v1.0.fa
 BUSCO: /home/scruz/software/busco-5.4.3/bin/busco
 busco_db : /home/scruz/references/BUSCO/fabales_odb10/
 
-read_depth_path: /home/scruz/pipelines/denovo_assembly/config/read_depths_purge.txt
+read_depth_path: /home/scruz/workflows/denovo_assembly/config/read_depths_purge.txt
 
-basedir: /catalogue/InterspecificCommonBeanDenovoGenomeAssembly/1.Data
+
+
+
 chromonomer: /home/scruz/chrono/chromonomer-1.14/chromonomer
 markers_scaffolding: /home/scruz/pipelines/denovo_assembly/resources/SR_F2_linkage_map/SR_F2_markers.fasta
 linkage_map: /home/scruz/pipelines/denovo_assembly/resources/SR_F2_linkage_map/SR_F2_linkage_map.tsv

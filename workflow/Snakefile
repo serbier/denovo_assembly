@@ -8,16 +8,19 @@ print(start_time)
 # resources params
 include : "rules/common.smk"
 
+
 rule all:
 	input:
-		assembly = expand(["purge/{sample}/{sample}_polished_histogram.png"],
-			 sample = ['G2402','AMADEUS','RAZ_044','TLP_030','DOR_476','SER_316','SIN_526','SMN_097'])
+		assembly = expand(["{base_dir}/quality/BUSCO/{sample}/short_summary.json"],
+			base_dir = "/opt/bean_fast/ONT",
+			 sample = ["INB_841"])
 
-#include : "rules/read_correction.smk"
-include : "rules/canu.smk"
+include : "rules/raw_reads_processing.smk"
+include : "rules/assembly.smk"
 include : "rules/polishing.smk"
 include : "rules/purge_assembly.smk"
-#include : "rules/annotation.smk"
-#include : "rules/scaffolding.smk"
-
+include : "rules/annotation.smk"
+include : "rules/scaffolding.smk"
+include : "rules/decontamination.smk"
+include : "rules/quality_asessment.smk"
 
